@@ -6,5 +6,7 @@
 # Step -2 Authetication for signup and signin
     1. Using next auth for sign in using email and password
 
-# Step-3 CreatedSignup form
+# Step-3 Created Signup form
     1. Using shadcn for the ui and zod for the pre validation
+# Step -4 Fetching user data
+    With te help of useSession getting user data and showing in profile route

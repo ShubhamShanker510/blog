@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import connectDb from "../../../../../lib/mongodb";
-import User from "../../../../../models/user";
+import connectDb from "../../../../lib/mongodb";
+import User from "../../../../models/user";
 import bcrypt from "bcryptjs";
 
 
@@ -52,3 +52,5 @@ const handler=NextAuth({
         }
     }
 })
+
+export { handler as GET, handler as POST };

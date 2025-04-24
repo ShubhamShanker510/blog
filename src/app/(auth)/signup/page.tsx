@@ -8,6 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 import { z } from "zod";
 import "react-toastify/dist/ReactToastify.css";
+import Link from "next/link";
 
 // Zod schema
 const schema = z.object({
@@ -65,18 +66,18 @@ export default function Page() {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 border rounded-xl shadow-sm bg-[#171717]">
-      <h2 className="text-2xl font-semibold text-white mb-4">
+    <div className="max-w-md mx-auto mt-10 p-6 border rounded-xl border-[#f5deb3] shadow-sm bg-[#0c1117] text-[#f5deb3]">
+      <h2 className="text-2xl font-semibold mb-4">
         Create Account
       </h2>
 
-      <form onSubmit={handleSubmit} className="space-y-4 text-white">
+      <form onSubmit={handleSubmit} className="space-y-4 ">
         <div>
-          <Label htmlFor="name">Name</Label>
+          <Label htmlFor="name">NAME</Label>
           <Input
             id="name"
             placeholder="John Doe"
-            className={`mt-1 ${errors.name ? "border-red-500" : ""}`}
+            className={`mt-1 border-[#f5deb3] ${errors.name ? "border-red-500" : ""}`}
             value={formData.name}
             onChange={handleChange}
           />
@@ -86,13 +87,13 @@ export default function Page() {
         </div>
 
         <div>
-          <Label htmlFor="email">Email</Label>
+          <Label htmlFor="email">EMAIL</Label>
           <Input
             id="email"
             value={formData.email}
             onChange={handleChange}
             placeholder="johndoe@example.com"
-            className={`mt-1 ${errors.email ? "border-red-500" : ""}`}
+            className={`mt-1 border-[#f5deb3] ${errors.email ? "border-red-500" : ""}`}
           />
           {errors.email && (
             <p className="text-sm text-red-500 mt-1">{errors.email}</p>
@@ -100,14 +101,14 @@ export default function Page() {
         </div>
 
         <div>
-          <Label htmlFor="password">Password</Label>
+          <Label htmlFor="password">PASSWORD</Label>
           <Input
             id="password"
             value={formData.password}
             onChange={handleChange}
             type="password"
             placeholder="******"
-            className={`mt-1 ${errors.password ? "border-red-500" : ""}`}
+            className={`mt-1 border-[#f5deb3] ${errors.password ? "border-red-500" : ""}`}
           />
           {errors.password && (
             <p className="text-sm text-red-500 mt-1">{errors.password}</p>
@@ -116,14 +117,27 @@ export default function Page() {
 
         <Button
           type="submit"
-          className="w-full bg-white text-black hover:text-white"
+          className="mt-6 w-full border border-[#f5deb3] text-[#f5deb3] hover:bg-[#f5deb3] hover:text-[#0c1117] transition cursor-pointer"
           disabled={loading}
         >
-          {loading ? "Creating Account..." : "Sign Up"}
+          {loading ? "Creating Account..." : "SIGN UP"}
         </Button>
+        <div className='flex justify-center'><p>Create Your Account <Link className='text-blue-500 hover:underline' href="/signin">Click Here</Link></p></div>
       </form>
+      
 
-      <ToastContainer />
+      <ToastContainer 
+      position="top-right"
+      autoClose={5000}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick={false}
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      theme="dark"
+      />
     </div>
   );
 }
